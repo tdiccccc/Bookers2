@@ -1,3 +1,9 @@
+<% flash.each do |key, value| %>
+    <p id="notice">
+      <%= value %>
+    </p>
+<% end %>
+
 <h2>Book detail</h2>
 
 <table class='table'>
@@ -7,10 +13,14 @@
     <%= @book.user.name %></td>
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
-    <td>Edit</td>
     <td>
       <% if @book.user == current_user %>
-         <%= link_to "削除", book_path(@book), method: :delete %>
+         <%= link_to "Edit", edit_book_path %>
+      <% end %>
+    </td>
+    <td>
+      <% if @book.user == current_user %>
+         <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
     </td>
   </tr>
