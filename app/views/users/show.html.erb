@@ -1,25 +1,10 @@
-<h2>User info</h2>
-<%= image_tag 'sample-author1.jpg' %>
-<table class = "table">
-  <tbody>
-    <tr></tr>
-    <tr>
-      <th>name</th>
-      <th><%= @user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= @user.introduction %></th>
-    </tr>
-  </tbody>
-</table>
+<%= render 'info', user: @user%>
 
 <% if @user == current_user %>
     <%= link_to "Edit", edit_user_path %>
 <% end %>
 
-
-
+<%= render 'form', book_new: @book_new %>
 
 
 
@@ -36,7 +21,7 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= image_tag 'sample-author1.jpg' %></td>
+        <td><%= image_tag book.user.get_profile_image(100,100) %></td>
         <td>
           <%= link_to book_path(book.id) do %>
           <%= book.title %>

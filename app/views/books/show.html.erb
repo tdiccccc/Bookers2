@@ -4,13 +4,19 @@
     </p>
 <% end %>
 
+<%= render 'form', book_new: @book_new %>
+
 <h2>Book detail</h2>
 
 <table class='table'>
 
   <tr>
-    <td><%= image_tag 'sample-author1.jpg' %></br>
-    <%= @book.user.name %></td>
+    <td>
+      <%= image_tag @book.user.get_profile_image(100,100) %></br>
+      <%= link_to @book.user do %>
+        <%= @book.user.name %>
+      <% end %>
+    </td>
     <td><%= @book.title %></td>
     <td><%= @book.body %></td>
     <td>
