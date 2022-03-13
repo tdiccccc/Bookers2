@@ -14,7 +14,7 @@
       <tr>
         <td><%= image_tag 'sample-author1.jpg' %></td>
         <td><%= user.name %></td>
-        <td>show</td>
+        <td><%= link_to user_path(user.id) do %>Show<%end%></td>
       </tr>
     <%end%>
   </tbody>
