@@ -12,9 +12,20 @@
 
   <body>
     <header>
+      <li>
+        <%= link_to 'Home', user_path(current_user.id) %>
+      </li>
+
+      <li>
+        <%= link_to 'Users', users_path(current_user.id) %>
+      </li>
+
+      <li>
+        <%= link_to 'Books', books_path %>
+      </li>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li>
