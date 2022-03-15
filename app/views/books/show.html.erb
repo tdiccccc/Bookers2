@@ -1,10 +1,6 @@
-<% flash.each do |key, value| %>
-    <p id="notice">
-      <%= value %>
-    </p>
-<% end %>
-<%= render 'info', user: @user %>
-<%= render 'form', book_new: @book_new %>
+
+
+<%= render 'form', book_new: @book_new, user: @user %>
 
 <h2>Book detail</h2>
 
@@ -12,8 +8,9 @@
 
   <tr>
     <td>
-      <%= image_tag @book.user.get_profile_image(100,100) %></br>
+
       <%= link_to @book.user do %>
+        <%= image_tag @book.user.get_profile_image(40,40) %></br>
         <%= @book.user.name %>
       <% end %>
     </td>

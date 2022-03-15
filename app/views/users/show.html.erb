@@ -1,11 +1,5 @@
 
-<%= render 'books/info', user: @user %>
-
-<% if @user == current_user %>
-    <%= link_to "Edit", edit_user_path %>
-<% end %>
-
-<%= render 'books/form', book_new: @book_new %>
+<%= render 'books/form', book_new: @book_new, user: @user %>
 
 
 

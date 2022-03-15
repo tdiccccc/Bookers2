@@ -1,5 +1,5 @@
-<%= render 'books/info', user: @user, book_new: @book_new%>
-<%= render 'booksform', book_new: @book_new %>
+<%= render 'books/form', user: @user, book_new: @book_new%>
+
 <h2>Users</h2>
 
 <table class='table'>
@@ -13,7 +13,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag user.get_profile_image(100,100) %></td>
+        <td><%= image_tag user.get_profile_image(40,40) %></td>
         <td><%= user.name %></td>
         <td><%= link_to user_path(user.id) do %>Show<%end%></td>
       </tr>

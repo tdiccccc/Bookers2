@@ -11,6 +11,26 @@
   <% end %>
 </div>
 
+<h2>User info</h2>
+
+<%= image_tag user.get_profile_image(40,40) %>
+<table class = "table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+
+    <%= link_to "Edit", edit_user_path(current_user.id) %>
+
 <h1>New Book</h1>
   <%= form_with model: book_new do |f| %>
 
