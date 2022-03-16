@@ -25,15 +25,13 @@
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <label for="user_password_confirmation">Password confirmation</label><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
       <div class="actions">
-        <div class="btn btn-sm btn-success" >
-          <%= f.submit "Sign up" %>
-        </div>
-        
+        <input type="submit" name="commit" value="Sign up" class="btn btn-sm btn-success" data-disable-with="Sign up">
+
       </div>
     <% end %>
 
