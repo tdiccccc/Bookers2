@@ -14,70 +14,55 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <%= link_to root_path do%>
-            <div class="navbar-brand">Bookers</div>
-          <%end%>
+          <a class="navbar-brand" href="/"><span>Bookers</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to user_path(current_user.id) do %>
-                  <div class="nav-link text-light">
+                  <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
                     <i class="fas fa-home"></i>Home
-                  </div>
                   <%end%>
                 </li>
 
                 <li>
-                  <%= link_to users_path do %>
-                  <div class="nav-link text-light">
+                  <%= link_to users_path, class: "nav-link text-light" do %>
                     <i class ="fas fa-users"></i>Users
-                  </div>
                   <%end%>
                 </li>
 
                 <li>
-                  <%= link_to books_path do%>
-                  <div class="nav-link text-light">
+                  <%= link_to books_path, class: "nav-link text-light" do%>
                     <i class ="fas fa-book-open"></i>Books
-                  </div>
                   <%end%>
                 </li>
 
                 <li>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                  <div class="nav-link text-light">
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
                     <i class ="fas fa-sign-out-alt"></i>Log out
-                  </div>
                   <%end%>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to root_path  do %>
-                    <div class="nav-link text-light">
+                  <%= link_to root_path, class: "nav-link text-light" do %>
                       <i class="fas fa-home "></i>Home
-                    </div>
                   <%end%>
                 </li>
                 <li>
-                  <%= link_to about_path do %>
-                    <div class="nav-link text-light">
+                  <%= link_to about_path, class: "nav-link text-light" do %>
                       <i class="fas fa-link"></i>About
-                    </div>
                   <%end%>
                 </li>
                 <li>
-                  <%= link_to new_user_registration_path do %>
-                    <div class="nav-link text-light">
+                  <%= link_to new_user_registration_path, class:  "nav-link text-light" do %>
                       <i class="fas fa-user-plus"></i>Sign up
-                    </div>
                   <%end%>
                 </li>
                 <li>
-                  <%= link_to  new_user_session_path do %>
-                    <div class="nav-link text-light">
+                  <%= link_to  new_user_session_path, class: "nav-link text-light" do %>
                       <i class ="fas fa-sign-in-alt"></i>Log in
-                    </div>
                   <%end%>
                 </li>
               <% end %>
@@ -91,7 +76,8 @@
         <p id="notice">
           <%= value %>
         </p>
-<% end %>
+      <% end %>
+      <%= yield %>
     </main>
     <footer>
       <div class='container mt-5'>
@@ -102,6 +88,6 @@
         </div>
       </div>
     </footer>
-    <%= yield %>
+
   </body>
 </html>
